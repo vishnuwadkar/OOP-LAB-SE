@@ -1,0 +1,65 @@
+//Sorting
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+usingnamespacestd;
+
+voidshow(inta[])
+{
+for(inti = 0; i &lt; 10; ++i)
+cout&lt;&lt; a[i] &lt;&lt; &quot; &quot;;
+}
+intmain()
+{
+inta[10]= {1, 5, 8, 9, 6, 7, 3, 4, 2, 0};
+cout&lt;&lt; &quot;\n The array before sorting is : &quot;;
+show(a);
+sort(a, a+10);
+cout&lt;&lt; &quot;\n\n The array after sorting is : &quot;;
+show(a);
+return0;
+}
+
+-----------------------------------------------
+
+//Searching
+#include
+&lt;algorith
+m&gt;
+#include
+&lt;iostream
+&gt;
+Using namespace std;
+voidshow(inta[], intarraysize)
+{
+for(inti = 0; i
+&lt;arraysize;
+
+++i) cout&lt;&lt;
+a[i] &lt;&lt; &quot; &quot;;
+}
+intmain()
+{
+inta[] = { 1, 5, 8, 9, 6, 7, 3, 4, 2, 0 };
+intasize = sizeof(a) /
+sizeof(a[0]); cout&lt;&lt;
+&quot;\n The array is : &quot;;
+show(a, asize);
+cout&lt;&lt; &quot;\n\nLet&#39;s say we want to search for 2 in the
+array&quot;; cout&lt;&lt; &quot;\n So, we first sort the array&quot;;
+sort(a, a + asize);
+cout&lt;&lt; &quot;\n\n The array after
+sorting is : &quot;; show(a, asize);
+cout&lt;&lt; &quot;\n\nNow, we do the
+binary search&quot;;
+if(binary_search(a, a + 10, 2))
+cout&lt;&lt; &quot;\nElement found
+in the array&quot;; else
+cout&lt;&lt; &quot;\nElement not found in the array&quot;;
+cout&lt;&lt; &quot;\n\nNow, say we want to
+search for 10&quot;; if(binary_search(a, a
++ 10, 10))
+cout&lt;&lt; &quot;\nElement found
+in the array&quot;; else
+cout&lt;&lt; &quot;\nElement not found in the array&quot;;
+return0;
+}

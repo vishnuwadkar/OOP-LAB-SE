@@ -1,0 +1,63 @@
+#include&lt;iostream&gt;
+using namespace std;
+template &lt;class Z&gt;
+class templates
+{
+Z a[100];
+int num;
+public:
+void accept()
+{
+int i;
+cout&lt;&lt;&quot;Enter the number of elements in your array&quot;&lt;&lt;endl;
+cin&gt;&gt;num;
+cout&lt;&lt;&quot;Enter the elements of the array&quot;&lt;&lt;endl;
+for(i=0;i&lt;num;i++)
+cin&gt;&gt;a[i];
+
+}
+void selsort()
+{
+int i,j,min;
+for(int i=0;i&lt;num;i++)
+
+{
+min=i;
+for(int j=i+1;j&lt;num;j++)
+{
+if(a[j]&lt;a[min])
+min=j;
+
+}
+swap(a[i],a[min]);
+}
+
+cout&lt;&lt;&quot;Sorted array:&quot;&lt;&lt;endl;
+for(i=0;i&lt;num;i++)
+cout&lt;&lt;a[i]&lt;&lt;&quot;\n&quot;;
+
+}
+};
+int main()
+{
+int ch;
+templates&lt;int&gt; obj;
+templates&lt;float&gt; obj1;
+cout&lt;&lt;&quot;1- Selection sort for integer array\n2- Selection sort for float
+array\nEnter choice&quot;&lt;&lt;endl;
+cin&gt;&gt;ch;
+switch(ch)
+{
+case 1:
+obj.accept();
+obj.selsort();
+break;
+case 2:
+obj1.accept();
+obj1.selsort();
+break;
+default:
+cout&lt;&lt;&quot;Wrong choice entered&quot;&lt;&lt;endl;
+}
+return 0;
+}

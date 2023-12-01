@@ -1,0 +1,47 @@
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main() {
+   vector&lt;int&gt; v = { 10, 9, 8, 6, 7, 2, 5, 1 };
+   cout&lt;&lt;&quot;Elements before sorting&quot;&lt;&lt;endl;
+   for (const auto &amp;i: v)
+      cout &lt;&lt; i &lt;&lt; &#39; &#39;&lt;&lt;endl;
+      cout&lt;&lt;&quot;Elements after sorting&quot;&lt;&lt;endl;
+      sort(v.begin(), v.end());
+   for (const auto &amp;i: v)
+      cout &lt;&lt; i &lt;&lt; &#39; &#39;&lt;&lt;endl;
+   return 0;
+}
+
+--------------------
+
+// CPP program to illustrate
+// std::find
+// CPP program to illustrate
+// std::find
+#include&lt;bits/stdc++.h&gt;
+int main ()
+{
+std::vector&lt;int&gt; vec { 10, 20, 30, 40 };
+// Iterator used to store the position
+// of searched element
+std::vector&lt;int&gt;::iterator it;
+// Print Original Vector
+std::cout &lt;&lt; &quot;Original vector :&quot;;
+for (int i=0; i&lt;vec.size(); i++)
+std::cout &lt;&lt; &quot; &quot; &lt;&lt; vec[i];
+std::cout &lt;&lt; &quot;\n&quot;;
+// Element to be searched
+int ser = 30;
+// std::find function call
+it = std::find (vec.begin(), vec.end(), ser);
+if (it != vec.end())
+{
+std::cout &lt;&lt; &quot;Element &quot; &lt;&lt; ser &lt;&lt;&quot; found at position : &quot; ;
+std::cout &lt;&lt; it - vec.begin() &lt;&lt; &quot; (counting from zero) \n&quot; ;
+}
+else
+std::cout &lt;&lt; &quot;Element not found.\n\n&quot;;
+return 0;
+}

@@ -1,0 +1,136 @@
+#include &lt;iostream&gt;
+using namespace std;
+/**************CLASS MARKETING**************/
+class Marketing
+{
+public:
+Marketing()
+{
+title=&quot;&quot;;
+price=0.0;
+}
+Marketing(string title, float price)
+{
+this-&gt;title=title;
+this-&gt;price=price;
+}
+void getData()
+{
+cout&lt;&lt;&quot;\nEnter title and price\n&quot;;
+cin&gt;&gt;title&gt;&gt;price;
+}
+void putData()
+{
+try
+{
+if(title.length()&lt;3)
+throw title;
+if(price&lt;=0.0)
+throw price;
+}
+catch(string)
+{
+cout&lt;&lt;&quot;\nError: Title below 3 characters is not allowed&quot;;
+title=&quot;&quot;;
+}
+catch(float f)
+{
+cout&lt;&lt;&quot;\nError: Price not valid: \t&quot;&lt;&lt;f;
+price=0.0;
+}
+cout&lt;&lt;&quot;\nTitle is :&quot;&lt;&lt;title;
+cout&lt;&lt;&quot;\nPrice is :&quot;&lt;&lt;price;
+}
+private:
+string title;
+float price;
+};
+/*******************BOOK IS DERIVE Class from Marketing***************/
+
+class Book: public Marketing
+{
+public:
+Book():Marketing()
+{
+pages=0;
+}
+Book(string title, float price, int pages):Marketing(title,price)
+{
+this-&gt;pages=pages;
+}
+void getData()
+{
+Marketing::getData();
+cout&lt;&lt;&quot;\nEnter no. of pages in book\n&quot;;
+cin&gt;&gt;pages;
+}
+void putData()
+{
+Marketing::putData();
+try
+{
+if(pages&lt;0)
+throw pages;
+}
+catch(int f)
+{
+cout&lt;&lt;&quot;\nError: Pages not valid: \t&quot;&lt;&lt;f;
+pages=0;
+}
+cout&lt;&lt;&quot;\nPages are :&quot;&lt;&lt;pages;
+}
+private:
+int pages;
+};
+/****************class Cassette DERIVE from Marketing*****************/
+class Cassette: public Marketing
+{
+public:
+Cassette():Marketing()
+{
+playtime=0.0;
+}
+Cassette(string title, float price, float playtime):Marketing(title,price)
+{
+this-&gt;playtime=playtime;
+}
+
+void getData()
+{
+Marketing::getData();
+cout&lt;&lt;&quot;\nEnter play time of cassette\n&quot;;
+cin&gt;&gt;playtime;
+}
+void putData()
+{
+Marketing::putData();
+try
+{
+if(playtime&lt;0.0)
+throw playtime;
+}
+catch(float f)
+{
+cout&lt;&lt;&quot;\nError: Playtime not valid: \t&quot;&lt;&lt;f;
+playtime=0.0;
+}
+cout&lt;&lt;&quot;\nPlaytime is :&quot;&lt;&lt;playtime;
+}
+private:
+float playtime;
+};
+/* **************************** Main function***********************/
+int main()
+{
+Book book;
+cout&lt;&lt;&quot;\n***************BOOK**************\n&quot;;
+book.getData();
+cout&lt;&lt;&quot;\n***************CASSETTE**************\n&quot;;
+Cassette cassette;
+cassette.getData();
+cout&lt;&lt;&quot;\n***************BOOK**************\n&quot;;
+book.putData();
+cout&lt;&lt;&quot;\n***************CASSETTE**************\n&quot;;
+cassette.putData();
+return 0;
+}

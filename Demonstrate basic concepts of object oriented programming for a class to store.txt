@@ -1,0 +1,136 @@
+#include&lt;iostream&gt;
+#include&lt;string.h&gt;
+#include&lt;stdlib.h&gt;
+using namespace std;
+class Student
+{
+private:
+char *name,*class1,*div,*dob,*bldgrp, *address,*drv;
+int rno,phone;
+static int counter;
+public:
+Student();
+Student(char *,int,char *,int,char *,char *,char *,char *,char *);
+~Student();
+inline void getDetails();
+inline void showDetails();
+static void count();
+};
+int Student::counter;
+Student::Student()
+{
+name=new char[1];
+class1=new char[1];
+div=new char[1];
+dob=new char[1];
+bldgrp=new char[1];
+address=new char[1];
+drv=new char[1];
+
+rno=0;
+phone=0;
+}
+Student::Student(char *name,int rno, char *address,int phone,char *class1,
+char *div,char *dob,char *bldgrp,char *drv)
+{
+int len=strlen(name);
+this-&gt;name=new char[len+1];
+strcpy(this-&gt;name,name);
+len=strlen(class1);
+this-&gt;class1=new char[len+1];
+strcpy(this-&gt;class1,class1);
+len=strlen(div);
+this-&gt;div=new char[len+1];
+strcpy(this-&gt;div,div);
+len=strlen(dob);
+this-&gt;dob=new char[len+1];
+strcpy(this-&gt;dob,dob);
+len=strlen(bldgrp);
+this-&gt;bldgrp=new char[len+1];
+strcpy(this-&gt;bldgrp,bldgrp);
+len=strlen(address);
+this-&gt;address=new char[len+1];
+strcpy(this-&gt;address,address);
+len=strlen(drv);
+this-&gt;drv=new char[len+1];
+strcpy(this-&gt;drv,drv);
+this-&gt;rno=rno;
+this-&gt;phone=0;
+}
+Student::~Student()
+{
+delete name;
+delete address;
+delete dob;
+delete drv;
+delete bldgrp;
+delete class1;
+delete div;
+rno=0;
+phone=0;
+cout&lt;&lt;&quot;\nThank you for deleting details\n&quot;;
+}
+void Student::getDetails()
+{
+cout&lt;&lt;&quot;\n*******Enter Details of Student ********\n&quot;;
+cout&lt;&lt;&quot;Name : &quot;;
+
+cin&gt;&gt;name;
+cout&lt;&lt;&quot;Roll No. : &quot;;
+cin&gt;&gt;rno;
+cout&lt;&lt;&quot;Class : &quot;;
+cin&gt;&gt;class1;
+cout&lt;&lt;&quot;Div : &quot;;
+cin&gt;&gt;div;
+cout&lt;&lt;&quot;Address: &quot;;
+cin&gt;&gt;address;
+cout&lt;&lt;&quot;Phone : &quot;;
+cin&gt;&gt;phone;
+cout&lt;&lt;&quot;Date of Birth : &quot;;
+cin&gt;&gt;dob;
+cout&lt;&lt;&quot;Driving License : &quot;;
+cin&gt;&gt;drv;
+cout&lt;&lt;&quot;Blood Group : &quot;;
+cin&gt;&gt;bldgrp;
+}
+void Student::showDetails()
+{
+Student::count();
+cout&lt;&lt;&quot;\nName : &quot;&lt;&lt;name;
+cout&lt;&lt;&quot;\tRoll No. : &quot;&lt;&lt;rno;
+cout&lt;&lt;&quot;\nClass : &quot;&lt;&lt;class1;
+cout&lt;&lt;&quot;\tDiv : &quot;&lt;&lt;div;
+cout&lt;&lt;&quot;\nAddress: &quot;&lt;&lt;address;
+cout&lt;&lt;&quot;\tPhone : &quot;&lt;&lt;phone;
+cout&lt;&lt;&quot;\nDate of Birth : &quot;&lt;&lt;dob;
+cout&lt;&lt;&quot;\tDriving License : &quot;&lt;&lt;drv;
+cout&lt;&lt;&quot;\tBlood Group : &quot;&lt;&lt;bldgrp&lt;&lt;endl;
+}
+void Student::count()
+{
+counter++;
+cout&lt;&lt;&quot;\n****************Details of Student
+&quot;&lt;&lt;counter&lt;&lt;&quot;****************\n&quot;;
+}
+int main()
+{
+cout&lt;&lt;&quot;\n***************Student Information System***********\n&quot;;
+cout&lt;&lt;&quot;How many student you have?&quot;;
+int num;
+cin&gt;&gt;num;
+Student s[num];
+for(int i=0;i&lt;num;i++)
+{
+s[i].getDetails();
+}
+system(&quot;clear&quot;);
+cout&lt;&lt;&quot;\n***************Student Information System***********\n&quot;;
+for(int i=0;i&lt;num;i++)
+{
+s[i].showDetails();
+}
+Student s1(&quot;First&quot;,2,&quot;Pune&quot;,12345,&quot;SE&quot;,&quot;A&quot;,&quot;10-07-2016&quot;,&quot;B+&quot;,&quot;777&quot;);
+
+s1.showDetails();
+return 0;
+}

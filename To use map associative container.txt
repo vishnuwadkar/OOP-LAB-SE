@@ -1,0 +1,16 @@
+//Program
+#include &lt;map&gt;
+#include &lt;iostream&gt;
+#include&lt;string&gt;
+usingnamespacestd;
+intmain()
+{
+// map declaration map&lt;int,string&gt;mymap;
+// mapping integers to strings mymap[1] = &quot;Hi&quot;;
+mymap[2] = &quot;This&quot;;
+mymap[3] = &quot;is&quot;;
+mymap[4] = &quot;NBN&quot;;
+// using operator[] to print string
+// mapped to integer 4 cout&lt;&lt;mymap[4];
+return0;
+}

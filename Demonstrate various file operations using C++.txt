@@ -1,0 +1,95 @@
+// writing on a text file
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+int main () {
+ofstream myfile (&quot;example.txt&quot;);
+if (myfile.is_open())
+{
+myfile &lt;&lt; &quot;This is a line.\n&quot;;
+myfile &lt;&lt; &quot;This is another line.\n&quot;;
+myfile.close();
+}
+else cout &lt;&lt; &quot;Unable to open file&quot;;
+return 0;
+}
+
+-----------------------------------------------------------------
+
+// reading a text file
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+using namespace std;
+int main () {
+string line;
+ifstream myfile (&quot;example.txt&quot;);
+if (myfile.is_open())
+{
+while ( getline (myfile,line) )
+{
+cout &lt;&lt; line &lt;&lt; &#39;\n&#39;;
+}
+myfile.close();
+}
+else cout &lt;&lt; &quot;Unable to open file&quot;;
+return 0;
+}
+
+---------------------------------------------------------------------
+
+/*
+Write a C++ program that creates an output file,
+writes information to it, closes the file and open it again as an input file
+and read the information from the file.
+Enter name of file from user
+*/
+#include &lt;cstdlib&gt;
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main ()
+{char name[80];
+cout&lt;&lt;&quot;Enter name of file to create\n&quot;;
+cin&gt;&gt;name;
+// open a file in write mode.
+ofstream fout;
+
+fout.open(name);
+if(!fout)
+{
+cout&lt;&lt;&quot;Error opening file\n&quot;;
+exit(1);
+}
+cout &lt;&lt; &quot;Writing to the file&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;Enter contents for file end with ctrl+D&quot;;
+string data;
+while(getline(cin,data))
+{
+if(data == &quot;^D&quot;)
+break;
+// write inputted data into the file.
+fout &lt;&lt; data &lt;&lt; endl;
+}
+// close the opened file.
+fout.close();
+// open a file in read mode.
+ifstream fin;
+fin.open(name);
+if(!fin)
+{
+cout&lt;&lt;&quot;Error opening file\n&quot;;
+exit(1);
+}
+cout &lt;&lt; &quot;Reading from the file&quot; &lt;&lt; endl;
+while(fin)
+{
+getline(fin,data);
+// write the data at the screen.
+cout &lt;&lt; data &lt;&lt; endl;
+}
+// close the opened file.
+fin.close();
+return 0;
+}
+/*

@@ -1,0 +1,98 @@
+//Program to demonstrate various operations on Complex class
+
+#include&lt;iostream&gt;
+using namespace std;
+class Complex
+{
+float real,img;
+public:
+//Constructor
+Complex()
+{
+real=0;
+img=0;
+}
+Complex(float a,float b)
+{
+real=a;
+img=b;
+}
+//Addition of two complex numbers
+Complex operator+(Complex c1)
+{
+Complex temp;
+temp.real=real+c1.real;
+temp.img=img+c1.img;
+return temp;
+}
+//Subtraction of two complex numbers
+Complex operator-(Complex c1)
+{
+Complex temp;
+temp.real=real-c1.real;
+temp.img=img-c1.img;
+return temp;
+}
+//Multiplication of two complex numbers
+Complex operator*(Complex c1)
+{
+Complex temp;
+temp.real=(real*c1.real)-(img*c1.img);
+temp.img=(img*c1.real)+(real*c1.img);
+return temp;
+}
+
+//overloaded insertion (&lt;&lt;) opertor for class Complex
+friend ostream &amp;operator&lt;&lt;(ostream &amp;out, Complex &amp;c)
+{
+out &lt;&lt; c.real&lt;&lt;&quot; + &quot;&lt;&lt; c.img&lt;&lt;&quot; i&quot;;
+return out;
+}
+//overloaded extraction (&gt;&gt;) opertor for class Complex
+friend istream &amp;operator&gt;&gt;(istream &amp;in, Complex &amp;c)
+{
+
+in&gt;&gt; c.real&gt;&gt;c.img;
+return in;
+}
+};
+
+int main()
+{
+Complex c1,c2,c3;
+int choice;
+char ans;
+do
+{
+cout&lt;&lt;&quot;\n************* MENU ************\n&quot;;
+cout&lt;&lt;&quot;\n\t1.Addition\n\t2.Subtraction\n\t3.Multiplication\n&quot;;
+cout&lt;&lt;&quot;\n\nEnter your choice: &quot;;
+cin&gt;&gt;choice;
+cout&lt;&lt; &quot;Enter real and img part of first complex number\n&quot;;
+cin&gt;&gt;c1;
+cout&lt;&lt; &quot;Enter real and img part of second complex number\n&quot;;
+cin&gt;&gt;c2;
+switch(choice)
+{
+case 1:
+c3=c1+c2;
+cout&lt;&lt;&quot;\n\nAddition is: &quot;;
+cout&lt;&lt;c3;
+break;
+case 2:
+c3=c1-c2;
+cout&lt;&lt;&quot;\n\nSubtraction is: &quot;;
+cout&lt;&lt;c3;
+break;
+case 3:
+c3=c1*c2;
+cout&lt;&lt;&quot;\n\nMultiplication is: &quot;;
+cout&lt;&lt;c3;
+default:
+cout&lt;&lt;&quot;\nWrong choice&quot;;
+}
+cout&lt;&lt;&quot;\nDo you want to continue?(y/n): &quot;;
+cin&gt;&gt;ans;
+}while(ans==&#39;y&#39; || ans==&#39;Y&#39;);
+return 0;
+}
